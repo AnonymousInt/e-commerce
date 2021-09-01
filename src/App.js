@@ -20,7 +20,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
-import tiers from './data';
+import tiers from './data.json';
 import CancelIcon from '@material-ui/icons/HighlightOffRounded';
 
 function Copyright() {

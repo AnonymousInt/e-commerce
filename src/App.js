@@ -21,6 +21,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import tiers from './data';
+import CancelIcon from '@material-ui/icons/HighlightOffRounded';
 
 function Copyright() {
   return (
@@ -162,6 +163,7 @@ export default function Pricing() {
   const [list, setList] = React.useState(tiers);
   const [selected, setSelected] = React.useState(null);
   const [hasMore, setHasMore] = React.useState(true);
+  const [showAds, setShowAds] = React.useState(true);
 
   const handleChangeSort = (e) =>{
     let option = e.target.value
@@ -382,6 +384,16 @@ export default function Pricing() {
         <Box mt={5}>
           <Copyright />
         </Box>
+        {
+          list.length > 20 && 
+          <Box mt={5}>
+            <div className='ads' style={{display: !showAds && 'none'}}>
+                <div className='ads-close' onClick={() => setShowAds(false)}><CancelIcon/></div>
+              <img src='./pepsi.jpg' />
+            </div>
+          </Box>
+        }
+        
       </Container>
       {/* End footer */}
       </ThemeProvider>

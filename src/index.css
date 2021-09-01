@@ -30,3 +30,36 @@ code {
 	justify-content: center;
 	padding-top: 20px;
 }
+
+.ads {
+	position: fixed;
+	top: 28%;
+	left: 34%;
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+		both;
+	animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+.ads img {
+	height: 300px;
+}
+
+.ads-close {
+	position: absolute;
+	right: -11px;
+	top: -13px;
+}
+.ads-close:hover {
+	cursor: pointer;
+}
+
+@keyframes scale-up-center {
+	0% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}

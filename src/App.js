@@ -18,15 +18,16 @@ import Select from '@material-ui/core/Select';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import InfiniteScroll from "react-infinite-scroll-component";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { TramRounded } from '@material-ui/icons';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
+import tiers from './data';
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Old.St Labs
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -116,52 +117,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const tiers = [
-  {
-    id: 1,
-    price: 1.5,
-    name:'Roboto',
-    date: '2 days ago',
-    size: 26,
-  },
-  {
-    id: 2,
-    price: 1,
-    name:'Poppins',
-    date: '3 days ago',
-    size: 27,
-  },
-  {
-    id: 3,
-    price: 1.25,
-    name:'STIX Two Math',
-    date: 'May 23',
-    size: 20,
-  },
-  {
-    price: 3.0,
-    id: 4,
-    name:'Kaisei HarunoUmi',
-    date: '3 days ago',
-    buttonText: 'Sign up for free',
-    buttonVariant: 'outlined',
-    size: 16,
-  },
-  {
-    id: 5,
-    price: 1.5,
-    name:'Times New Roman',
-    date: '5 days ago',
-    size: 28,
-  },
-  {
-    id: 6,
-    price: 2.5,
-    name:'Helvetica',
-    date: 'Jan 21',
-    size: 26,
-  },
-];
+
 const footers = [
   {
     title: 'Company',
@@ -212,13 +168,13 @@ export default function Pricing() {
     let newList =[];
     
     switch(option){
-      case 10: newList = tiers.sort((a, b)=>{return b.price - a.price});
+      case 10: newList = list.sort((a, b)=>{return b.price - a.price});
                break;
-      case 20: newList = tiers.sort((a, b)=>{return b.size - a.size});
+      case 20: newList = list.sort((a, b)=>{return b.size - a.size});
                break;
-      case 30: newList = tiers.sort((a, b)=>{return b.id - a.id});
+      case 30: newList = list.sort((a, b)=>{return b.id - a.id});
               break;
-      default: newList = tiers;      
+      default: newList = list;      
     }
 
     setSelected(option);
@@ -226,37 +182,27 @@ export default function Pricing() {
   }
   const addData = () =>{
       setList(list.concat( [{
-        title: 'Enterprise',
         id: list.length + 1,
         price: 4,
         name:'Helvetica',
         date: 'Jan 21',
-        buttonText: 'Contact us',
-        buttonVariant: 'outlined',
         size: 22,
       },
       {
-        title: 'Enterprise',
         id: list.length + 2,
         price: 2.5,
         name:'Consolas',
         date: 'Jan 21',
-        buttonText: 'Contact us',
-        buttonVariant: 'outlined',
         size: 16,
       },
       {
-        title: 'Enterprise',
         id: list.length + 3,
         price: 3.33,
         name:'Courier New',
         date: 'Jan 21',
-        buttonText: 'Contact us',
-        buttonVariant: 'outlined',
         size: 18,
       },
     ]))
-      console.log("jemimah", list)
     
   }
   const fetchMoreData = () => {
